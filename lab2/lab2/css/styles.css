@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+/* menu */
+.site-header {
+  padding: 15px;
+  background-color: white;
+}
+
+.logo {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+.nav-link {
+  color: black;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+/* intro */
+.intro {
+  padding: 50px 30px;
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* parallax photos */
+.parallax {
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: white;
+}
+
+.spring {
+  background-image: url("../images/spring.jpg");
+}
+
+.summer {
+  background-image: url("../images/summer.jpg");
+}
+
+.autumn {
+  background-image: url("../images/fall.jpg");
+}
+
+.winter {
+  background-image: url("../images/winter.jpg");
+}
+
+.season-word {
+  display: block;
+  padding-top: 180px;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.caption {
+  font-size: 20px;
+}
+
+/* text sections */
+.story {
+  padding: 50px 30px;
+  text-align: center;
+}
+
+/* end */
+.outro {
+  padding: 50px 30px;
+  text-align: center;
+}

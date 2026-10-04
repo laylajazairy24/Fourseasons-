@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Toronto in Four Seasons</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body id="page">
+
+  <!-- menu -->
+  <header class="site-header">
+    <a class="logo" href="#top">Toronto</a>
+    <nav>
+      <a class="nav-link" href="#spring">Spring</a>
+      <a class="nav-link" href="#summer">Summer</a>
+      <a class="nav-link" href="#autumn">Fall</a>
+      <a class="nav-link" href="#winter">Winter</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- intro -->
+    <section class="intro">
+      <h1 id="title">A year in Toronto</h1>
+      <p>the four seasons in the city, Scroll down to see them.</p>
+      <button onclick="changeTitle()">Change the title</button>
+      <button onclick="darkMode()">Dark mode</button>
+      <button onclick="showFacts()">Show fun facts</button>
+    </section>
+
+    <!-- spring -->
+    <div class="parallax spring" id="spring">
+      <span class="season-word">Spring</span>
+      <p class="caption">it's finally warm</p>
+    </div>
+    <section class="story">
+      <h2>Spring is finally here</h2>
+      <p>The snow melts and everyone goes outside againn, People go to High Park to see the cherry blosoms</p>
+    </section>
+
+    <!-- summer -->
+    <div class="parallax summer" id="summer">
+      <span class="season-word">Summer</span>
+      <p class="caption">Island season</p>
+    </div>
+    <section class="story">
+      <h2>Summer in the city</h2>
+      <p>Summer is my favorite time inToronto. we can take the ferry to the Islands, go to the beach and sit on patios.</p>
+    </section>
+
+    <!-- fall -->
+    <div class="parallax autumn" id="autumn">
+      <span class="season-word">Fall</span>
+      <p class="caption">Back to school</p>
+    </div>
+    <section class="story">
+      <h2>The leaves change colour</h2>
+      <p>School starts again and it gets colder. It's time for sweaters and a Tim Hortons coffee on the way to class.</p>
+    </section>
+
+    <!-- winter -->
+    <div class="parallax winter" id="winter">
+      <span class="season-word">Winter</span>
+      <p class="caption">Very cold</p>
+    </div>
+    <section class="story">
+      <h2>Winter is long</h2>
+      <p>It snows a lot and it gets dark at 5pm. People go skating at Nathan Phillips Square.</p>
+    </section>
+
+    <!-- end -->
+    <footer class="outro">
+      <p>And then spring comes back.</p>
+      <a href="#top">Back to topp</a>
+    </footer>
+
+  </main>
+<script type="text/javascript">
+ 
+    // change 1: switch the title text
+    function changeTitle() {
+      document.getElementById('title').innerHTML = "Toronto all year long";
+    }
+ 
+    // change 2: dark mode
+    function darkMode() {
+      document.getElementById('page').style.backgroundColor = "black";
+      document.getElementById('page').style.color = "white";
+    }
+ 
+    // change 3: switch the captions on the photos
+    function showFacts() {
+      document.getElementsByClassName('caption')[0].innerHTML = "you can also see the Cherry blossoms next to Robarts library";
+      document.getElementsByClassName('caption')[1].innerHTML = "the Ferry to the Toronto Islands is only 30 mins long";
+      document.getElementsByClassName('caption')[2].innerHTML = "the first day of fall is september 21";
+      document.getElementsByClassName('caption')[3].innerHTML = "the lowest temperature recorded in Canada is -61 in 1941";
+    }
+ 
+  </script>
+</body>
+</html>
