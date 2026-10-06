@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+  margin: 30px;
+}
+
+#story-title {
+  color: gray;
+  font-size: 20px;
+}
+
+#caption {
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+}
