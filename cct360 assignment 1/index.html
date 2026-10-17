@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <!-- Makes the page fit phone screens (needed for the responsive layout) -->
+  <!-- Makes the page fit phone screens -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Where's Hero?</title>
 
@@ -21,7 +21,7 @@
     <p>Hero the cat is hiding somewhere in the apartment. Search every room, collect the clues, and find Hero!</p>
   </div>
 
-  <!-- ===== CLUE TRACKER (always visible) ===== -->
+  <!-- ===== CLUE TRACKER ===== -->
   <div id="tracker">
     <p>Clues found: <strong><span id="count">0</span> / 4</strong></p>
     <div id="bar-track">
@@ -32,7 +32,7 @@
   <div id="main">
 
     <!-- ===================================================== -->
-    <!-- SCENE 1: HALLWAY (the hub)                            -->
+    <!-- SCENE 1: HALLAWAY            -->
     <!-- ===================================================== -->
     <div id="hallway" class="scene">
 
@@ -63,8 +63,8 @@
 
       <p class="hint">The closet door is shut. Maybe once you find all 4 clues, you'll know where to look...</p>
 
-      <!-- LOCKED CLOSET: the button is inside 4 nested divs.
-           Each div starts hidden. Each clue shows ONE div.
+      <!-- LOCKED CLOSET: the button is inside4 nested divs.
+           Each div starts hidden.
            The button only appears when ALL 4 divs are visible. -->
       <div id="lock1" class="lock">
         <div id="lock2" class="lock">
@@ -167,7 +167,7 @@
     </div>
 
     <!-- ===================================================== -->
-    <!-- SCENE 6: CLOSET (the ending)                          -->
+    <!-- SCENE 6: CLOSET the endinmg                        -->
     <!-- ===================================================== -->
     <div id="closet" class="scene">
       <h2>You found Hero!</h2>
