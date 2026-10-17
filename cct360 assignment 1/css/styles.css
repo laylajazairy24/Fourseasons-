@@ -1,0 +1,230 @@
+/* =========================================
+   WHERE'S HERO? - styles.css
+   Cozy & warm palette:
+   cream      #FFF6EC
+   peach      #F6D6BD
+   orange     #E8894A
+   dark brown #5B3A29
+   ========================================= */
+
+/* ===== PAGE ===== */
+body {
+  background-color: #FFF6EC;
+  color: #5B3A29;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Fredoka", Arial, sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 34px;
+  color: #E8894A;
+}
+
+/* ===== HEADER ===== */
+#header {
+  background-color: #F6D6BD;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* ===== CLUE TRACKER ===== */
+#tracker {
+  background-color: #5B3A29;
+  color: #FFF6EC;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+#bar-track {
+  width: 80%;
+  height: 14px;
+  margin: 0 auto 10px auto;
+  background-color: #FFF6EC;
+  border-radius: 10px;
+}
+
+/* the bar grows with JavaScript: width = clues * 25 + "%" */
+#bar {
+  width: 0%;
+  height: 14px;
+  background-color: #E8894A;
+  border-radius: 10px;
+}
+
+/* ===== MAIN CONTAINER ===== */
+#main {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* ===== SCENES =====
+   All scenes are hidden by default.
+   JavaScript shows one at a time. */
+.scene {
+  display: none;
+}
+
+/* The hallway is the first scene you see */
+#hallway {
+  display: block;
+}
+
+/* ===== PARALLAX (Class 2) ===== */
+.parallax {
+  position: relative;
+  height: 300px;
+  background-image: url("../images/hallway.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 20px;
+}
+
+.caption {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+}
+
+.caption h2 {
+  display: inline-block;
+  background-color: #FFF6EC;
+  color: #5B3A29;
+  padding: 10px 30px;
+  border-radius: 20px;
+}
+
+/* ===== CALL HERO ===== */
+.call-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#meow {
+  margin-left: 20px;
+  color: #E8894A;
+  font-weight: bold;
+}
+
+/* ===== FLEXBOX: ROOM BUTTONS (Class 2) ===== */
+.room-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.room-btn {
+  flex-grow: 1;
+  flex-basis: 200px;
+  margin: 8px;
+}
+
+/* ===== FLEXBOX: ROOM LAYOUT (image + text) ===== */
+.room-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Each side wants 300px. On small screens they don't fit side by side,
+   so flex-wrap moves the text under the image (responsive). */
+.room-img {
+  flex-grow: 1;
+  flex-basis: 300px;
+  max-width: 100%;
+  margin: 10px;
+  border: 6px solid #F6D6BD;
+  border-radius: 20px;
+}
+
+.room-text {
+  flex-grow: 1;
+  flex-basis: 300px;
+  margin: 10px;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  font-family: "Fredoka", Arial, sans-serif;
+  font-size: 20px;
+  padding: 12px 24px;
+  margin: 8px 8px 8px 0;
+  border: 3px solid #5B3A29;
+  border-radius: 30px;
+  background-color: #F6D6BD;
+  color: #5B3A29;
+}
+
+.call-btn,
+.search-btn {
+  background-color: #E8894A;
+  color: #FFF6EC;
+}
+
+.back-btn {
+  background-color: #FFF6EC;
+}
+
+.closet-btn {
+  background-color: #5B3A29;
+  color: #FFF6EC;
+  font-size: 24px;
+}
+
+/* ===== CLUES ===== */
+.clue {
+  display: none;
+  background-color: #F6D6BD;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 20px;
+}
+
+.clue img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* ===== LOCKED CLOSET =====
+   4 nested divs, all hidden at the start. */
+.lock {
+  display: none;
+}
+
+.hint {
+  font-style: italic;
+}
+
+.unlocked-text {
+  font-weight: bold;
+  color: #E8894A;
+}
+
+/* ===== CASE NOTES ===== */
+#notes {
+  background-color: #FFFFFF;
+  border: 3px dashed #F6D6BD;
+  border-radius: 20px;
+  padding: 10px 25px;
+  margin-top: 30px;
+}
