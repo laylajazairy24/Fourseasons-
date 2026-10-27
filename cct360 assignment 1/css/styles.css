@@ -206,8 +206,8 @@ button {
 }
 
 /* ===== LOCKED CLOSET =====
-   4 nested divs, all hidden at the start. */
-.lock {
+   Hidden at the start. JavaScript shows it when clues === 4. */
+#closet-door {
   display: none;
 }
 
@@ -227,4 +227,24 @@ button {
   border-radius: 20px;
   padding: 10px 25px;
   margin-top: 30px;
+}
+
+/* ===== ENDINGS =====
+   Both endings are hidden until the user makes a choice. */
+.ending {
+  display: none;
+  background-color: #F6D6BD;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 20px;
+}
+
+.ending img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* "Play again" only appears after an ending is chosen */
+#play-again {
+  display: none;
 }
