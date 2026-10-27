@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sip Check</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <div id="card">
+    <h1>☕ Sip Check</h1>
+    <p class="subtitle">answer 2 questions, get your drink of the day</p>
+
+    <!-- Question 1 -->
+    <h3>1. how sleepy are you rn?</h3>
+    <div class="row">
+      <button class="sleepy-btn" onclick="pickSleepy('barely')">barely 😌</button>
+      <button class="sleepy-btn" onclick="pickSleepy('kinda')">kinda 🥱</button>
+      <button class="sleepy-btn" onclick="pickSleepy('dead')"> super sleepy  💀</button>
+    </div>
+
+    <!-- Question 2 -->
+    <h3>2. sweet or no?</h3>
+    <div class="row">
+      <button class="sweet-btn" onclick="pickSweet(true)">sweet 🍯</button>
+      <button class="sweet-btn" onclick="pickSweet(false)">no sugar 🙅‍♀️</button>
+    </div>
+
+    <button id="order-btn" onclick="getOrder()">get my order</button>
+
+    <!-- Result ( JavaScript) -->
+    <div id="result">
+      <p id="emoji"></p>
+      <h2 id="drink-name"></h2>
+      <p id="drink-desc"></p>
+    </div>
+
+    <p id="counter"></p>
+
+    <button id="reset-btn" onclick="startOver()">start over</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
