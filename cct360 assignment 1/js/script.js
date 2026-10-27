@@ -1,21 +1,22 @@
 // =========================================
 // WHERE'S HERO? - script.js
-// Only uses what we learned in Classes 3 & 4:
 // let, global variables, functions with parameters,
 // getElementById, getElementsByClassName[index],
 // .innerHTML, .style.property, +=, concatenation,
-// Math.random(), and the "disabled" attribute.
+// Math.random(), the "disabled" attribute, and if statements.
 // =========================================
 
 
 // ===== GLOBAL VARIABLES (Class 4: Global vs. Local) =====
-// Declared OUTSIDE the functions, so every function can read and change them.
-// This is how the site REMEMBERS what the user has done.
-let clues = 0;   // how many clues the user has found
-let pets = 0;    // how many times the user petted Hero
+// Declared OUTSIDE the functions
+
+let clues = 0;        // how many clues the user has found
+let pets = 0;         // how many times the user petted Hero
+let calls = 0;        // how many times the user called for Hero
+let firstRoom = "";   // the first room where a clue was found
 
 
-// ===== SCENE 1-6: SWITCH SCENES =====
+// ===== SWITCH SCENES =====
 // Hides all 6 scenes, then shows the one we want.
 // sceneName is a parameter, e.g. showScene('kitchen')
 function showScene(sceneName) {
@@ -32,49 +33,82 @@ function showScene(sceneName) {
 
 // ===== STATE-BASED INTERACTION: COLLECT A CLUE =====
 // room     = the room id ('kitchen', 'bedroom', ...)
-// lockId   = which closet lock this clue opens ('lock1' ... 'lock4')
 // roomName = the name shown on the hallway button
 // note     = the sentence added to the Case Notes
-function findClue(room, lockId, roomName, note) {
+function findClue(room, roomName, note) {
 
-  // 1. Count the clue (compound assignment operator, Class 4)
+  // 1. Count the clue
   clues += 1;
 
-  // 2. Update the counter and the progress bar
+  // 2. Remember where the search started (only on the first clue)
+  if (clues === 1) {
+    firstRoom = roomName;
+  }
+
+  // 3. Update the counter and the progress bar
   document.getElementById("count").innerHTML = clues;
   document.getElementById("bar").style.width = clues * 25 + "%";
 
-  // 3. Show the clue in the room
+  // 4. Show the clue in the room
   document.getElementById("clue-" + room).style.display = "block";
 
-  // 4. Disable the search button so the same clue can't be counted twice
+  // 5. Disable the search button so the same clue can't be counted twice
   document.getElementById("search-" + room).disabled = true;
   document.getElementById("search-" + room).innerHTML = "Already searched";
 
-  // 5. Remember the visit: put a checkmark on the hallway button
+  // 6. Remember the visit: put a checkmark on the hallway button
   document.getElementById("btn-" + room).innerHTML = roomName + " &#10003;";
 
-  // 6. Add the clue to the Case Notes (string concatenation)
+  // 7. Add the clue to the Case Notes
   document.getElementById("empty-note").style.display = "none";
   document.getElementById("journal").innerHTML += "<li>" + note + "</li>";
 
-  // 7. Open one of the 4 closet locks.
-  //    The closet button is nested inside all 4 lock divs,
-  //    so it only appears once ALL 4 clues are found (in any order).
-  document.getElementById(lockId).style.display = "block";
+  // 8. Unlock the closet once ALL 4 clues are found (in any order)
+  if (clues === 4) {
+    document.getElementById("closet-door").style.display = "block";
+  }
+}
+
+
+// ===== OPEN THE CLOSET =====
+// Writes a recap using what the site remembered, then shows the closet.
+function openCloset() {
+  document.getElementById("recap").innerHTML =
+    "Your search started in the " + firstRoom + ", and you called for Hero " + calls + " times along the way.";
+  showScene("closet");
+}
+
+
+// ===== THE FINAL CHOICE: TWO ENDINGS =====
+// choice is either 'cuddle' or 'sleep'
+function chooseEnding(choice) {
+  // hide the question and the two choice buttons
+  document.getElementById("choice-title").style.display = "none";
+  document.getElementById("choices").style.display = "none";
+
+  // show the ending the user picked
+  if (choice === "cuddle") {
+    document.getElementById("ending-cuddle").style.display = "block";
+  } else {
+    document.getElementById("ending-sleep").style.display = "block";
+  }
+
+  // now the user can play again
+  document.getElementById("play-again").style.display = "inline-block";
 }
 
 
 // ===== CALL FOR HERO (Math.random, Class 4) =====
 // A random number decides how loud the meow sounds.
 function callHero() {
+  calls += 1;
   let loudness = Math.random() * 20 + 14;   // a number from 14 to 34
   document.getElementById("meow").innerHTML = "...meow?";
   document.getElementById("meow").style.fontSize = loudness + "px";
 }
 
 
-// ===== PET HERO (ending scene) =====
+// ===== PET HERO (cuddle ending) =====
 function petHero() {
   pets += 1;
   document.getElementById("purr").innerHTML = "Purrr... Hero has been petted " + pets + " times.";
@@ -94,6 +128,8 @@ function restartGame() {
   // reset the global variables
   clues = 0;
   pets = 0;
+  calls = 0;
+  firstRoom = "";
 
   // reset the tracker
   document.getElementById("count").innerHTML = clues;
@@ -106,16 +142,21 @@ function restartGame() {
   resetRoom("balcony", "Balcony", "Look by the plants");
 
   // lock the closet again
-  document.getElementById("lock1").style.display = "none";
-  document.getElementById("lock2").style.display = "none";
-  document.getElementById("lock3").style.display = "none";
-  document.getElementById("lock4").style.display = "none";
+  document.getElementById("closet-door").style.display = "none";
+
+  // reset the endings and bring back the choice
+  document.getElementById("ending-cuddle").style.display = "none";
+  document.getElementById("ending-sleep").style.display = "none";
+  document.getElementById("choice-title").style.display = "block";
+  document.getElementById("choices").style.display = "flex";
+  document.getElementById("play-again").style.display = "none";
 
   // clear the notes and messages
   document.getElementById("journal").innerHTML = "";
   document.getElementById("empty-note").style.display = "block";
   document.getElementById("meow").innerHTML = "";
   document.getElementById("purr").innerHTML = "";
+  document.getElementById("recap").innerHTML = "";
 
   // go back to the start
   showScene("hallway");
