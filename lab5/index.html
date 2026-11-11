@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 5 - Damascus Soundscape</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+
+  <h1 id="title">Damascus, Syria</h1>
+  <p>A 60 second soundscape of my hometown. Press play to listen and watch the city.</p>
+
+  <!-- Part B: the video reacts to the soundscape -->
+  <video id="cityVideo" muted loop>
+    <source src="video/damascus.mp4" type="video/mp4">
+    Your browser does not support this video element
+  </video>
+
+  <!-- Part A: the soundscape -->
+  <audio id="player">
+    <source src="audio/damascus.mp3" type="audio/mpeg">
+    Your browser does not support this audio element
+  </audio>
+
+  <div id="controls">
+    <button id="playBtn">Play</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="stopBtn">Stop</button>
+    <button id="volumeDownBtn">Volume -</button>
+    <button id="volumeUpBtn">Volume +</button>
+  </div>
+
+  <p id="message">Press play to start the soundscape</p>
+
+  <p class="credits">
+    Sounds from Freesound.org:<br>
+    "Traditional eastern instrument sargija improvisation played by Boris Todorovic" by tomlija<br>
+    "Traffic medium, Middle East busy street" by kyles <br>
+    "video is from youtube. creator: amazing places from our planet"
+  </p>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
