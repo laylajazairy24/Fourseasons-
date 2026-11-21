@@ -1,0 +1,36 @@
+body {
+  font-family: "Comic Sans MS", cursive;
+  text-align: center;
+  background-color: gray;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+#emoji {
+  font-size: 150px;
+  margin: 0;
+}
+
+button {
+  font-size: 25px;
+  padding: 10px;
+}
+
+/* the javascript picks one of these */
+
+.cold {
+  background-color: lightblue;
+  color: darkblue;
+}
+
+.mild {
+  background-color: lightgreen;
+  color: darkgreen;
+}
+
+.hot {
+  background-color: orange;
+  color: darkred;
+}
