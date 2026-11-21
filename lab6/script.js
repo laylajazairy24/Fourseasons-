@@ -18,15 +18,15 @@ async function getWeather() {
 
     // change the page depending on the temperature
     if (temperature < 5) {
-      document.body.className = "cold";
+      document.querySelector("#box").className = "cold";
       document.querySelector("#emoji").textContent = "🥶";
       document.querySelector("#message").textContent = "its freezing. wear a coat!!";
     } else if (temperature < 15) {
-      document.body.className = "mild";
+      document.querySelector("#box").className = "mild";
       document.querySelector("#emoji").textContent = "😐";
       document.querySelector("#message").textContent = "its ok. bring a jacket i guess";
     } else {
-      document.body.className = "hot";
+      document.querySelector("#box").className = "hot";
       document.querySelector("#emoji").textContent = "🥵";
       document.querySelector("#message").textContent = "its hot. no jacket needed";
     }

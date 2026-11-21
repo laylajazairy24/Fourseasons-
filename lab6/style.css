@@ -1,11 +1,20 @@
 body {
   font-family: "Comic Sans MS", cursive;
   text-align: center;
-  background-color: gray;
+  background-image: url("toronto.png");
+  background-size: cover;
+  background-position: center;
+}
+
+#box {
+  width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 5px solid black;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 40px;
 }
 
 #emoji {
@@ -18,7 +27,7 @@ button {
   padding: 10px;
 }
 
-/* the javascript picks one of these */
+/* the javascript picks one of these for the box */
 
 .cold {
   background-color: lightblue;
